@@ -11,6 +11,7 @@ const Status = props => {
         <StatusItem
           key={status.id}
           id={status.id}
+          date={status.date}
           onDelete={props.onDeleteItem}
         >
           {status.text}

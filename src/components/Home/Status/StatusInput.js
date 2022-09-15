@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
-import Button from '../UI/Button/Button';
+import Button from '../../UI/Button/Button';
 import styles from './StatusInput.module.css';
 
 const StatusInput = (props) => {
   const [enteredValue, setEnteredValue] = useState('');
   const [isValid, setIsValid] = useState(true);
+
+  const dropDownChangeHandler = (event) => {
+    if (event.target.value.trim().length > 0) {
+      setIsValid(true);
+    }
+    setEnteredValue(event.target.value);
+  };
 
   const statusInputChangeHandler = (event) => {
     if (event.target.value.trim().length > 0) {
@@ -29,6 +36,11 @@ const StatusInput = (props) => {
       >
         <label>Status</label>
         <input type="text" onChange={statusInputChangeHandler} />
+        <select value={props.selected} onChange={dropDownChangeHandler}>
+          <option value='remote'>Remote</option>
+          <option value='in-office'>In Office</option>
+        </select>
+
       </div>
       <Button type="submit">Add Status</Button>
     </form>

@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import AuthContext from '../../store/auth-context';
+import Button from '../UI/Button/Button';
 
 import Card from '../UI/Card/Card';
 import classes from './Home.module.css';
-import Status from './Status';
+import Status from './Status/Status';
 //import v4 from 'uuid';
-import StatusInput from './StatusInput';
+import StatusInput from './Status/StatusInput';
 
 
 
 const Home = (props) => {
   const [userStatus, setUserStatus] = useState('');
+  const authCtx = useContext(AuthContext);
 
   const addStatusHandler =  enteredText => {
     setUserStatus(prevStatus => {
@@ -38,7 +41,8 @@ const Home = (props) => {
   return (
     <React.Fragment>
       <Card className={classes.home}>
-        <h1>Welcome back!</h1>
+        <h1>Welcome to Work, Worker!</h1>
+        <Button onClick={authCtx.onLogout}>Log Out</Button>
       </Card>
       <div>
         <section id="form">
