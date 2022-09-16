@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './StatusDate.module.css'
 
 const StatusDate = (props) => {
+  const [gatheredValue, setGatheredValue] = useState('')
+  const [isValid, setIsValid] = useState(true);
+
+  
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   const days = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"]
   const now = new Date()

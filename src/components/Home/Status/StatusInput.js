@@ -37,8 +37,10 @@ const StatusInput = (props) => {
         <label>Status</label>
         <input type="text" onChange={statusInputChangeHandler} />
         <select value={props.selected} onChange={dropDownChangeHandler}>
-          <option value='remote'>Remote</option>
-          <option value='in-office'>In Office</option>
+          <option value='Remote'>Remote</option>
+          <option value='In Office'>In Office</option>
+          <option value='Hybrid'>Hybrid</option>
+          <option value='In the Field'>In the Field</option>
         </select>
 
       </div>
